@@ -5,11 +5,12 @@
 }
 :root {
   --index: calc(1vh + 1vw);
-  --shadow: rgba(0 0 0 / 0.5)
+  --shadow: rgba(0 0 0 / 0.4);
+  --gradient: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .main-wrapper {
-  background: linear-gradient(rgba(2,0,36,1) 0%, rgba(9,81,121,1) 51%, rgba(0,212,255,1) 100%);
+  background: var(--gradient);
   position: fixed;
   top: 0;
   left: 0;
@@ -41,7 +42,7 @@
 }
 
 #input-area-label {
-  position: fixed;
+  position: absolute;
   margin-top: calc(var(--index) * 0.7);
   margin-left: calc(var(--index) * 0.7);
   color: aliceblue;
