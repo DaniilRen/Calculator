@@ -28,6 +28,7 @@
   height: calc(var(--index) * 8);
   background-color: var(--shadow);
   display: flex;
+  padding: 0 calc(var(--index) * 1.25);
 }
 
 .input-area {
