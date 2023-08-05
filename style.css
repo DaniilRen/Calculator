@@ -12,7 +12,7 @@
 
 
 .history {
-  overflow: auto;
+  overflow: auto;  
   border-radius: 20px;
   font-size: calc(var(--index) * 1.15);
   position: relative;
@@ -29,8 +29,17 @@
   width: 0;
 }
 
-.history-title {
+.history-btn {
+  margin: 0 auto;
+  border-radius: 18px;
+  width: calc(var(--index) * 8);
   font-size: calc(var(--index) * 1.5);
+  transition: background-color .3s ease, color .3s ease;
+}
+.history-btn:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+  color: rgba(238,174,202,1);
 }
 
 .history-data {

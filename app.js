@@ -58,3 +58,8 @@ addEventListener('keydown', (e) => {
     cancel_input()
   }
 })
+
+
+const history_btn = document.querySelector('.history-btn')
+
+history_btn.addEventListener('click', delete_history)
