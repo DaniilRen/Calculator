@@ -1,16 +1,20 @@
 const label = document.getElementById('input-area-label')
 
 
-let last_operation = null
+let last_action = null
+let history_element_trigger = false
 
 function calculate() {
-  if (last_operation === 'calculation') {
+  if (last_action === 'calculation') {
     default_output()
   } else {
-    console.log(last_operation)
-    const calculated_result = eval(old_number_with_operation+output.value)
-    output.value = calculated_result
-    last_operation = 'calculation' 
+    const result = eval(old_number_with_operation+output.value)
+
+    history_element_trigger = true
+    add_history_element(old_number, output.value, operation, result)
+    
+    output.value = result
+    last_action = 'calculation'
   }
   label.innerHTML = ''
 }
@@ -22,26 +26,29 @@ function add_number(btn) {
   output_zero_check()
   output_operation_check()
   output.value += number
-  last_operation = 'number'
+  last_action = 'number'
   label.innerHTML += number
 }
 
 
 let old_number_with_operation = null
+let old_number = null
+let operation = null 
 
 function add_operation(btn) {
-  let oper = btn.target.id
-  old_number_with_operation = output.value + oper
+  operation = btn.target.id
+  old_number = output.value
+  old_number_with_operation = old_number + operation
 
   output.value = btn.target.id
-  last_operation = 'operation'
+  last_action = 'operation'
   label.innerHTML = old_number_with_operation
 }
 
 
 function default_output() {
   output.value = '0'
-  last_operation = null
+  last_action = null
   old_number_with_operation = null
   label.innerHTML = ''
 }
@@ -58,7 +65,7 @@ function cancel_input() {
     output.value = 0
   }
   old_number_with_operation = null
-  last_operation = 'cancel' 
+  last_action = 'cancel' 
   label.innerHTML = label.innerHTML.slice(0, label.innerHTML.length-1)
 }
 
@@ -75,7 +82,7 @@ function add_operation_from_keyboard(operation) {
   old_number_with_operation = output.value + operation
 
   output.value = operation
-  last_operation = 'operation'
+  last_action = 'operation'
   label.innerHTML = old_number_with_operation
 }
 
@@ -90,5 +97,16 @@ function output_zero_check() {
 function output_operation_check() {
   if (['+', '-', '/', '*'].includes(output.value)){
     delete_output()
+  }
+}
+
+
+function add_history_element(a, b, operation, result) {
+  if (history_element_trigger) {
+    expression = `${a} ${operation} ${b} = ${result}`
+    element = `<div class="history-element">${expression}</div>`
+    const history_data = document.querySelector('.history-data')
+    history_data.insertAdjacentHTML("beforeend" ,element)
+    history_element_trigger = false
   }
 }
