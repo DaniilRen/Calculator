@@ -51,6 +51,7 @@
   margin-top: calc(var(--index) * 0.5);
 }
 
+
 .main-wrapper {
   background: var(--gradient);
   position: fixed;
@@ -141,5 +142,5 @@
   background-color: rgba(256 256 256 / 0.1);
 }
 .count-btn:hover {
-  background-color: rgba(35, 185, 196, 0.25);
+  background-color: rgba(238,174,202,1);
 }
