@@ -1,0 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', monospace;
+}
+:root {
+  --index: calc(1vh + 1vw);
+  --shadow: rgba(0 0 0 / 0.5)
+}
+
+.main-wrapper {
+  background: linear-gradient(rgba(2,0,36,1) 0%, rgba(9,81,121,1) 51%, rgba(0,212,255,1) 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-block {
+}
+
+.input-block {
+  border-radius: 22px;
+  border: none;
+  height: calc(var(--index) * 8);
+  background-color: var(--shadow);
+  display: flex;
+}
+
+.input-area {
+  display: flex;
+  text-align: center;
+  outline:none;
+  border: none;
+  color: aliceblue;
+  font-size: calc(var(--index) * 2.5);
+  width: calc(var(--index) * 22);
+  background-color: var(--gray);
+}
+
+.buttons-block {
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(var(--index) * 0.2);
+  background-color: var(--shadow);
+  height: calc(var(--index) * 18);
+  width: calc(var(--index) * 20);
+}
+
+.buttons-block-1 {
+  display: grid;
+  grid-template-columns: calc(var(--index) * 4.5) calc(var(--index) * 4.5) calc(var(--index) * 4.5) calc(var(--index) * 4.5);
+  grid-template-rows: calc(var(--index) * 4.5) calc(var(--index) * 4.5) calc(var(--index) * 4.5) calc(var(--index) * 4.5);
+  justify-content: center;
+}
+
+.buttons-block-2 {
+  display: grid;
+  grid-template-columns: calc(var(--index) * 3.5);
+  grid-template-rows: calc(var(--index) * 3.5);
+}
+
+.btn {
+  background-color: rgba(0 0 0 / 0);
+  border: none;
+  color: aliceblue;
+  font-size: calc(var(--index) * 1.5);
+  height: calc(var(--index) * 4.5);
+  width: calc(var(--index) * 4.5);
+  transition: background-color 0.25s ease;
+}
+.btn:hover {
+  background-color: rgba(256 256 256 / 0.1);
+}
+.btn:active {
+  background-color: rgba(0 0 0 / 0);
+}
+
+.operation {
+  width: calc(var(--index) * 3.5);
+}
+
+.count-btn {
+  height: calc(var(--index) * 20);
+  width: calc(var(--index) * 6.5);
+  margin-left:  calc(var(--index) * -1);
+  background-color: rgba(256 256 256 / 0.1);
+}
+.count-btn:hover {
+  background-color: rgba(35, 185, 196, 0.25);
+}
