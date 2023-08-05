@@ -21,6 +21,11 @@ const solve = document.getElementById('solve')
 const cancel = document.getElementById('cancel')
 
 solve.addEventListener('click', calculate)
+addEventListener('keydown', (e) => {
+  if (e.key == 'Enter') {
+    calculate()
+  }
+})
 
 del.addEventListener('click', default_output)
 
